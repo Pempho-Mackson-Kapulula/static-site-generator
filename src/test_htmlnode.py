@@ -139,6 +139,6 @@ class TestHTMLNode(unittest.TestCase):
         self.assertEqual(
             node.to_html(),
             "<div><b>Bold</b><span>inner</span>text</div>"
-    )
+        )
 if __name__ == "__main__":
     unittest.main()
