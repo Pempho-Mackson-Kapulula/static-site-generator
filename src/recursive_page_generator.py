@@ -1,10 +1,7 @@
 import os
 from page_generator import generate_page
 
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, base_path=None):
-    if base_path is None:
-        base_path = dir_path_content
-
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, base_path):
     for entry in os.listdir(dir_path_content):
         src_path = os.path.join(dir_path_content, entry)
 
@@ -17,4 +14,4 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, bas
 
             dest_path = os.path.join(dest_dir_path, rel_path)
 
-            generate_page(src_path, template_path, dest_path)
+            generate_page(src_path, template_path, dest_path, base_path)
