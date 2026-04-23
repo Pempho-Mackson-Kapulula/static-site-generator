@@ -1,5 +1,5 @@
 from copy_content import copy_static
-from page_generator import generate_page
+from recursive_page_generator import generate_pages_recursive
 import os
 
 def main():
@@ -10,10 +10,10 @@ def main():
 
     copy_static(src_path, dst_path)
 
-    generate_page(
-        from_path=os.path.join(BASE_DIR, "content/index.md"),
+    generate_pages_recursive(
+        dir_path_content=os.path.join(BASE_DIR, "content"),
         template_path=os.path.join(BASE_DIR, "template.html"),
-        dest_path=os.path.join(BASE_DIR, "public/index.html")
+        dest_dir_path=os.path.join(BASE_DIR, "public")
     )
 
 
