@@ -17,8 +17,9 @@ def main():
         dir_path_content=os.path.join(BASE_DIR, "content"),
         template_path=os.path.join(BASE_DIR, "template.html"),
         dest_dir_path=dst_path,
-        base_path=base_path
-    )
+        base_path=base_path,
+        content_root=os.path.join(BASE_DIR, "content")
+)
 
 
 if __name__ == "__main__":
