@@ -5,6 +5,9 @@ import os
 def generate_page(from_path, template_path, dest_path, base_path):
     print(f"Generating page from {from_path} to {dest_path} using {template_path}")
 
+    if not base_path.endswith("/"):
+        base_path += "/"
+
     with open(from_path, "r") as f:
         markdown = f.read()
 
@@ -19,7 +22,6 @@ def generate_page(from_path, template_path, dest_path, base_path):
     page = template.replace("{{ Title }}", title)
     page = page.replace("{{ Content }}", html)
 
-    # basepath injection (IMPORTANT for GitHub Pages)
     page = page.replace('href="/', f'href="{base_path}')
     page = page.replace('src="/', f'src="{base_path}')
 
